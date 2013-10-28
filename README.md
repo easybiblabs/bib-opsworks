@@ -1,7 +1,8 @@
 # bib::opsworks
 
 
-[![Build Status](https://travis-ci.org/easybiblabs/bib-opsworks.png?branch=master)](https://travis-ci.org/easybiblabs/bib-opswors)
+[![Build Status](https://travis-ci.org/easybiblabs/bib-opsworks.png?branch=master)](https://travis-ci.org/easybiblabs/bib-opsworks)
+[![Gem Version](https://badge.fury.io/rb/BibOpsworks.png)](http://badge.fury.io/rb/BibOpsworks)
 
 ## Huh?
 

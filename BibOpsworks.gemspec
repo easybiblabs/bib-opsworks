@@ -4,11 +4,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'bib/opsworks/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "Bib::Opsworks"
+  spec.name          = "BibOpsworks"
   spec.version       = Bib::Opsworks::VERSION
   spec.authors       = ["fh"]
   spec.email         = ["fh-gem@fholzhauer.de"]
   spec.homepage      = "https://github.com/fh/OpsworksEasybibGem"
+  spec.summary       = "Tools wrapper for AWS Opsworks Deploys"
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
