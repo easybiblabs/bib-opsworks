@@ -12,10 +12,10 @@ class BibOpsworks
     composer.copy_vendor(release_path, @deploy_data)
   end
 
-#  def newrelic_publish_deployment(app_name)
-#    newrelic = Bib::Opsworks::Newrelic.new()
-#    newrelic.publish_deployment(app_name, @deploy_data)
-#  end
+  def newrelic_publish_deployment(app_name, newrelic_api_key)
+    newrelic = Bib::Opsworks::Newrelic.new()
+    newrelic.publish_deployment(app_name, @deploy_data, newrelic_api_key)
+  end
 
   def version
     return Bib::Opsworks::VERSION
