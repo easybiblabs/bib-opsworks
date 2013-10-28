@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Bib::Opsworks::VERSION
   spec.authors       = ["fh"]
   spec.email         = ["fh-gem@fholzhauer.de"]
-  spec.homepage      = "https://github.com/fh/OpsworksEasybibGem"
+  spec.homepage      = "https://github.com/easybiblabs/bib-opsworks"
   spec.summary       = "Tools wrapper for AWS Opsworks Deploys"
 
   spec.files         = `git ls-files`.split($/)
