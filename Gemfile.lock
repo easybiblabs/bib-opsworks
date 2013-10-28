@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Bib::Opsworks (0.0.1)
+    BibOpsworks (0.0.2)
       json
 
 GEM
@@ -33,7 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Bib::Opsworks!
+  BibOpsworks!
   bundler (~> 1.3)
   coveralls
   minitest (~> 5.0.8)
