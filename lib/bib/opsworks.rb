@@ -18,6 +18,6 @@ class BibOpsworks
   end
 
   def version
-    return Bib::Opsworks::VERSION
+    Bib::Opsworks::VERSION
   end
 end
