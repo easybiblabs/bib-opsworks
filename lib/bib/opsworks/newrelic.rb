@@ -31,7 +31,7 @@ module Bib
         newrelic_user_body = "deployment[user]=#{deployment_user}"
         newrelic_revision_body = "deployment[revision]=#{scm_revision}"
 
-        "#{newrelic_appid_body}&#{newrelic_user_body}&=#{newrelic_revision_body}"
+        "#{newrelic_appid_body}&#{newrelic_user_body}&#{newrelic_revision_body}"
       end
     end
   end
