@@ -6,7 +6,7 @@ require 'bib/opsworks/version'
 Gem::Specification.new do |spec|
   spec.name          = "BibOpsworks"
   spec.version       = Bib::Opsworks::VERSION
-  spec.authors       = ["fh"]
+  spec.authors       = ["fh", "tillk"]
   spec.email         = ["fh-gem@fholzhauer.de"]
   spec.homepage      = "https://github.com/easybiblabs/bib-opsworks"
   spec.summary       = "Tools wrapper for AWS Opsworks Deploys"
