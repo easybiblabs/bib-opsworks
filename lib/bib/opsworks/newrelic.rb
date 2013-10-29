@@ -16,13 +16,7 @@ module Bib
             http.request(request)
         end
 
-        case resp
-        when Net::HTTPOK
-          return true
-        else
-          return false
-        end
-
+        resp.is_a? Net::HTTPOK
       end
 
       def prepare_publishing_data(app_name, deploy_data)
