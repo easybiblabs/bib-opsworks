@@ -3,7 +3,7 @@ gem 'minitest'
 require 'minitest/autorun'
 require 'bib/opsworks'
 
-class BibTest < Minitest::Test
+class OpsworksTest < Minitest::Test
 
   def test_version
     bib = BibOpsworks.new({})
