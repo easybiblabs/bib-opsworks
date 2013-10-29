@@ -4,7 +4,6 @@ module Bib
     class Newrelic
 
       def publish_deployment(app_name, deploy_data, newrelic_api_key)
-
         newrelic_body = prepare_publishing_data(app_name, deploy_data)
 
         newrelic_url = "https://rpm.newrelic.com/deployments.xml"
@@ -13,7 +12,7 @@ module Bib
         request.add_field('X-License-Key', newrelic_api_key)
         request.body = newrelic_body
         resp = Net::HTTP.new(url.host, url.port).start do |http|
-            http.request(request)
+          http.request(request)
         end
 
         resp.is_a? Net::HTTPOK
