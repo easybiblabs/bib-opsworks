@@ -19,7 +19,7 @@ class ComposerTest < Minitest::Test
   end
 
   def test_composer_copy
-    composervendor = Bib::Opsworks::Composer.new()
+    composervendor = Bib::Opsworks::Composer.new
 
     #do not use www-data, or the test will fail on systems without that user
     deploydata = { 'deploy_user' => { 'user' => Process.uid, 'group' => Process.gid }}

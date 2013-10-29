@@ -6,7 +6,7 @@ require 'bib/opsworks/newrelic'
 class NewrelicTest < Minitest::Test
 
   def test_publish_deployment
-    newrelic = Bib::Opsworks::Newrelic.new()
+    newrelic = Bib::Opsworks::Newrelic.new
 
     deploy_data = { 'deploying_user' => 'arn:aws:iam::123456:user/gemtest', 'scm' => { 'revision' => 'rev1' } }
     app_name = 'unittest'
@@ -16,7 +16,7 @@ class NewrelicTest < Minitest::Test
   end
 
   def test_publish_deployment_nouser
-    newrelic = Bib::Opsworks::Newrelic.new()
+    newrelic = Bib::Opsworks::Newrelic.new
 
     deploy_data = { 'scm' => { 'revision' => 'rev1' } }
     app_name = 'unittest'
