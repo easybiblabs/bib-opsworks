@@ -11,11 +11,11 @@ module Bib
         url = URI.parse(newrelic_url)
         request = Net::HTTP::Post.new(url.request_uri)
         request.add_field('X-Api-Key', newrelic_api_key)
-        request.content_type = "application/octet-stream"
         request.set_form_data(newrelic_params)
-        resp = Net::HTTP.new(url.host, url.port).start do |http|
-          http.request(request)
-        end
+
+        http = Net::HTTP.new(url.host, url.port)
+        http.use_ssl = true
+        resp = http.request(request)
 
         resp.is_a? Net::HTTPSuccess
       end
