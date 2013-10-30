@@ -3,18 +3,15 @@ require 'bib/opsworks/newrelic'
 require 'bib/opsworks/version'
 
 class BibOpsworks
-  def initialize(deploy_data)
-    @deploy_data = deploy_data
-  end
 
-  def copy_composer(release_path)
+  def copy_composer(release_path, deploy_user)
     composer = Bib::Opsworks::Composer.new
-    composer.copy_vendor(release_path, @deploy_data)
+    composer.copy_vendor(release_path, deploy_user)
   end
 
-  def newrelic_publish_deployment(app_name, newrelic_api_key)
+  def newrelic_publish_deployment(app_name, deploy_data, newrelic_api_key)
     newrelic = Bib::Opsworks::Newrelic.new
-    newrelic.publish_deployment(app_name, @deploy_data, newrelic_api_key)
+    newrelic.publish_deployment(app_name, deploy_data, newrelic_api_key)
   end
 
   def version

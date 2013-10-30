@@ -22,9 +22,9 @@ class ComposerTest < Minitest::Test
     composervendor = Bib::Opsworks::Composer.new
 
     #do not use www-data, or the test will fail on systems without that user
-    deploydata = { 'deploy_user' => { 'user' => Process.uid, 'group' => Process.gid }}
+    deploy_user = { 'user' => Process.uid, 'group' => Process.gid }
 
-    composervendor.copy_vendor(@release_path, deploydata)
+    composervendor.copy_vendor(@release_path, deploy_user)
     assert_equal(true,::File.exists?(File.expand_path('releases/123/vendor/some-lib',@fixtures_path)))
   end
 end

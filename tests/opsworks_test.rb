@@ -6,7 +6,6 @@ require 'bib/opsworks'
 class OpsworksTest < Minitest::Test
 
   def test_version
-    bib = BibOpsworks.new({})
-    assert_equal("0.0.2", bib.version())
+    assert_equal("0.0.3", BibOpsworks.new.version)
   end
 end
