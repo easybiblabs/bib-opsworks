@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    BibOpsworks (0.0.9)
+    BibOpsworks (0.1)
       json
 
 GEM

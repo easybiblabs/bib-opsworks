@@ -1,5 +1,5 @@
 module Bib
   module Opsworks
-    VERSION = "0.0.9.1"
+    VERSION = "0.1"
   end
 end
