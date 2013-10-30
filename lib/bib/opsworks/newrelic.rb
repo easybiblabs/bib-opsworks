@@ -1,4 +1,4 @@
-require 'uri'
+require 'net/http'
 
 module Bib
   module Opsworks
