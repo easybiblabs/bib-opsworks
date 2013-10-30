@@ -1,10 +1,16 @@
 require 'net/http'
+require 'logger'
 
 module Bib
   module Opsworks
     class Newrelic
 
       def publish_deployment(app_name, deploy_data, newrelic_api_key)
+        log_file = File.new('/tmp/test-publish-deployment.log', 'a')
+        log = Logger.new(log_file, 'weekly')
+        $stderr = log_file
+        $stdout = log_file
+        
         newrelic_params = prepare_publishing_data(app_name, deploy_data)
 
         newrelic_url = "https://rpm.newrelic.com/deployments.xml"
@@ -12,11 +18,13 @@ module Bib
         request = Net::HTTP::Post.new(url.request_uri)
         request.add_field('X-Api-Key', newrelic_api_key)
         request.set_form_data(newrelic_params)
-
+        
+        log.debug("Newrelic Data: " + newrelic_params.inspect)
+        
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
         resp = http.request(request)
-
+        log.debug("Newrelic Response: " + resp.inspect )
         resp.is_a? Net::HTTPSuccess
       end
 
@@ -38,7 +46,7 @@ module Bib
           newrelic_params["deployment[#{k}]"] = v unless v.nil? || v == ''
         end
         newrelic_params
-      end
+      end 
     end
   end
 end
