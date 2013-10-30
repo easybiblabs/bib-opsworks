@@ -12,7 +12,8 @@ class NewrelicTest < Minitest::Test
     app_name = 'unittest'
 
     result = newrelic.prepare_publishing_data(app_name, deploy_data)
-    assert_equal("deployment[app_name]=unittest&deployment[user]=gemtest&deployment[revision]=rev1", result)
+    expected = {"deployment[app_name]"=>"unittest", "deployment[user]"=>"gemtest", "deployment[revision]"=>"rev1"}
+    assert_equal(expected, result)
   end
 
   def test_publish_deployment_nouser
@@ -22,6 +23,7 @@ class NewrelicTest < Minitest::Test
     app_name = 'unittest'
 
     result = newrelic.prepare_publishing_data(app_name, deploy_data)
-    assert_equal("deployment[app_name]=unittest&deployment[user]=opsworks&deployment[revision]=rev1", result)
+    expected = {"deployment[app_name]"=>"unittest", "deployment[user]"=>"opsworks", "deployment[revision]"=>"rev1"}
+    assert_equal(expected, result)
   end
 end
