@@ -11,6 +11,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/easybiblabs/bib-opsworks"
   spec.summary       = "Tools wrapper for AWS Opsworks Deploys"
 
+  spec.license       = 'BSD-2-Clause'
+
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
