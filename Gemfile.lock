@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    BibOpsworks (0.1)
+    BibOpsworks (0.1.1)
       json
 
 GEM
@@ -13,10 +13,10 @@ GEM
       simplecov (>= 0.7)
       term-ansicolor
       thor
-    json (1.7.7)
+    json (1.8.1)
     mime-types (2.0)
     minitest (5.0.8)
-    multi_json (1.7.7)
+    multi_json (1.8.2)
     rake (10.1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
