@@ -21,11 +21,11 @@ module Bib
         if ::File.exists?(vendor_dir)
           fileutils_output = StringIO.new
           ::FileUtils.fileutils_output = fileutils_output
-          log.debug("Copy Vendor: Copying from #{vendor_dir} to #{release_vendor}")        
+          log.debug("Copy Vendor: Copying from #{vendor_dir} to #{release_vendor}")
           ::FileUtils.cp_r vendor_dir, release_vendor, :verbose => true 
           log.debug(fileutils_output.string)
         else
-          log.info('Vendor dir #{vendor_dir} does not exist')
+          log.info("Vendor dir #{vendor_dir} does not exist")
         end
         
         if ::File.exists?(release_vendor)
@@ -36,7 +36,7 @@ module Bib
           result = ::FileUtils.chown_R deploy_username, deploy_group, release_vendor, :verbose => true 
           log.debug(fileutils_output.string)
         else
-          log.info('Release vendor dir #{release_vendor} does not exist')
+          log.info("Release vendor dir #{release_vendor} does not exist")
         end
       end
     end
