@@ -4,10 +4,10 @@ module Bib
   module Opsworks
     module Logging
       def log
-        if(defined?(Chef::Log))
+        if defined?(Chef::Log)
           Chef::Log
         else
-          unless(@logger)
+          unless @logger
             require 'logger'
             @logger = Logger.new(STDOUT)
           end

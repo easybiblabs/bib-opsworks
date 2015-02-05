@@ -3,10 +3,9 @@ require 'bib/opsworks/newrelic'
 require 'bib/opsworks/version'
 
 class BibOpsworks
-
   def initialize
   end
-  
+
   def copy_composer(release_path, deploy_user)
     composer = Bib::Opsworks::Composer.new
     composer.copy_vendor(release_path, deploy_user)
