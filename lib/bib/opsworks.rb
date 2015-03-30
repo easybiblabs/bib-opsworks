@@ -1,5 +1,6 @@
 require 'bib/opsworks/composer'
 require 'bib/opsworks/newrelic'
+require 'bib/opsworks/google'
 require 'bib/opsworks/version'
 
 class BibOpsworks
@@ -14,6 +15,11 @@ class BibOpsworks
   def newrelic_publish_deployment(app_name, deploy_data, newrelic_api_key)
     newrelic = Bib::Opsworks::Newrelic.new
     newrelic.publish_deployment(app_name, deploy_data, newrelic_api_key)
+  end
+
+  def google_publish_deployment(app_name, deploy_data, google_ident)
+    google = Bib::Opsworks::Google.new
+    google.publish_deployment(app_name, deploy_data, google_ident)
   end
 
   def version
