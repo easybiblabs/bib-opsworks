@@ -16,8 +16,6 @@ module Bib
         url = URI.parse(google_url)
 
         request = Net::HTTP::Get.new(url.request_uri)
-
-        puts "#{google_url}"
         log.debug("google analytics sending data: " + request.inspect)
         
         http = Net::HTTP.new(url.host, url.port)
