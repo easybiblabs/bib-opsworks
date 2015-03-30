@@ -3,11 +3,9 @@ require 'net/http'
 module Bib
   module Opsworks
     class Google
-
       include Logging
-      
+
       def publish_deployment(app_name, deploy_data, google_ident)
-        
         google_params = prepare_publishing_data(app_name, deploy_data)
 
         label = "#{google_params['deployment[user]']}-#{google_params['deployment[revision]']}"
@@ -16,34 +14,34 @@ module Bib
         url = URI.parse(google_url)
 
         request = Net::HTTP::Get.new(url.request_uri)
-        log.debug("google analytics sending data: " + request.inspect)
-        
+        log.debug('google analytics sending data: ' + request.inspect)
+
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = false
         resp = http.request(request)
-        log.debug("Google Response: " + resp.code + " " + resp.message )
+        log.debug('Google Response: ' + resp.code + ' ' + resp.message)
         resp.is_a? Net::HTTPSuccess
       end
 
       def prepare_publishing_data(app_name, deploy_data)
-        scm_revision = deploy_data["scm"]["revision"]
+        scm_revision = deploy_data['scm']['revision']
 
-        if deploy_data["deploying_user"].nil? or deploy_data["deploying_user"].empty?
-          deployment_user = "opsworks"
+        if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
+          deployment_user = 'opsworks'
         else
-          deployment_user = deploy_data["deploying_user"].split('/')[1]
+          deployment_user = deploy_data['deploying_user'].split('/')[1]
         end
 
         google_params = {}
         {
-          :app_name => app_name, 
-          :user => deployment_user, 
-          :revision => scm_revision
+          app_name: app_name,
+          user: deployment_user,
+          revision: scm_revision
         }.each do |k, v|
           google_params["deployment[#{k}]"] = v unless v.nil? || v == ''
         end
         google_params
-      end 
+      end
     end
   end
 end
