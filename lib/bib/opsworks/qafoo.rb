@@ -34,9 +34,8 @@ module Bib
         
         name_text = "#{scm_revision} by #{deployment_user}"
 
-        qafoo_params = {}
-        {
-            apiKey: qafoo_api_key,
+        qafoo_params = {
+          apiKey: qafoo_api_key,
             name: name_text,
             environment: app_name,
             type: "deployment"
