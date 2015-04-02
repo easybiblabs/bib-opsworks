@@ -8,7 +8,7 @@ module Bib
       def publish_deployment(app_name, deploy_data, qafoo_api_key)
         qafoo_params = prepare_publishing_data(app_name, deploy_data)
         qafoo_params['apiKey'] = qafoo_api_key
-        
+
         qafoo_url = 'https://app.tideways.io/api/events'
         url = URI.parse(qafoo_url)
         request = Net::HTTP::Post.new(url.request_uri)
@@ -31,14 +31,14 @@ module Bib
         else
           deployment_user = deploy_data['deploying_user'].split('/')[1]
         end
-        
+
         name_text = "#{scm_revision} by #{deployment_user}"
 
         qafoo_params = {
           apiKey: qafoo_api_key,
-            name: name_text,
-            environment: app_name,
-            type: "deployment"
+          name: name_text,
+          environment: app_name,
+          type: 'deployment'
         }
         qafoo_params
       end

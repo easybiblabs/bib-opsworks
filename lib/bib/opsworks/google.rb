@@ -6,14 +6,12 @@ module Bib
       include Logging
 
       def publish_deployment(app_name, deploy_data, google_ident)
-        
         scm_revision = deploy_data['scm']['revision']
         if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
-            deployment_user = 'opsworks'
-            else
-            deployment_user = deploy_data['deploying_user'].split('/')[1]
+          deployment_user = 'opsworks'
+        else
+          deployment_user = deploy_data['deploying_user'].split('/')[1]
         end
-
 
         label = "#{deployment_user}-#{scm_revision}"
         query = "tid=#{google_ident}&ea=#{app_name}&el=#{label}"
@@ -30,7 +28,7 @@ module Bib
         resp.is_a? Net::HTTPSuccess
       end
 
-      def prepare_publishing_data(app_name, deploy_data)
+      def prepare_publishing_data(_app_name, deploy_data)
         deploy_data
       end
     end
