@@ -12,9 +12,9 @@ module Bib
         qafoo_url = 'https://app.tideways.io/api/events'
         url = URI.parse(qafoo_url)
         request = Net::HTTP::Post.new(url.request_uri)
-        request.set_form_data(qafoo_params)
+        request.body = qafoo_params.to_json
 
-        log.debug('qafoo sending data: ' + qafoo_params.inspect)
+        log.debug('qafoo sending data: ' + qafoo_params.to_json)
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = true
@@ -34,12 +34,10 @@ module Bib
 
         name_text = "#{scm_revision} by #{deployment_user}"
 
-        qafoo_params = {
-          apiKey: qafoo_api_key,
-          name: name_text,
-          environment: app_name,
-          type: 'deployment'
-        }
+        qafoo_params = {}
+        qafoo_params['name'] = name_text
+        qafoo_params['environment'] = app_name
+        qafoo_params['type'] = 'release'
         qafoo_params
       end
     end
