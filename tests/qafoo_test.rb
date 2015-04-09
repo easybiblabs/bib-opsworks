@@ -49,15 +49,4 @@ class QafooTest < Minitest::Test
     }
     assert_equal(expected, result)
   end
-
-  def test_publish_deployment
-    qafoo = Bib::Opsworks::Qafoo.new
-
-    deploy_data = { 'deploying_user' => 'arn:aws:iam::123456:user/gemtest', 'scm' => { 'revision' => 'rev1' } }
-    app_name = 'unittest'
-    qafoo_api_key = 'ESfwFfpqpJCDrBz2'
-    result = qafoo.publish_deployment(app_name, deploy_data, qafoo_api_key)
-    expected = true
-    assert_equal(expected, result)
-  end
 end
