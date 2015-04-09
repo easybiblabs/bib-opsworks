@@ -14,12 +14,12 @@ module Bib
         url = URI.parse(google_url)
 
         request = Net::HTTP::Get.new(url.request_uri)
-        log.debug('google analytics sending data: ' + request.inspect)
+        log.debug('Google Analytics: sending data: ' + google_url)
 
         http = Net::HTTP.new(url.host, url.port)
         http.use_ssl = false
         resp = http.request(request)
-        log.debug('Google Response: ' + resp.code + ' ' + resp.message)
+        log.debug('Google Analytics Response: ' + resp.code + ' ' + resp.message)
         resp.is_a? Net::HTTPSuccess
       end
 
