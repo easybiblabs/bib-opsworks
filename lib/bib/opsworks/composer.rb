@@ -16,6 +16,16 @@ module Bib
 
         release_vendor = "#{release_path}/vendor"
 
+        if ::File.exist?(release_vendor)
+          log.info('Not copying vendor dir, there already is one in the target path')
+          return
+        end
+
+        copy_vendordir(release_vendor, vendor_dir)
+        chown_vendordir(release_vendor, deploy_username, deploy_group)
+      end
+
+      def copy_vendordir(release_vendor, vendor_dir)
         if ::File.exist?(vendor_dir)
           fileutils_output = StringIO.new
           ::FileUtils.fileutils_output = fileutils_output
@@ -25,7 +35,9 @@ module Bib
         else
           log.info("Vendor dir #{vendor_dir} does not exist")
         end
+      end
 
+      def chown_vendordir(release_vendor, deploy_username, deploy_group)
         if ::File.exist?(release_vendor)
           fileutils_output = StringIO.new
           ::FileUtils.fileutils_output = fileutils_output
