@@ -20,7 +20,7 @@ module Bib
           http.use_ssl = true
           resp = http.request(request)
         rescue SocketError => se
-          log.info('Unable to publish deployment with tideways: ' + se)
+          log.info('Unable to publish deployment with tideways: ' + se.message)
         end
         log.debug('qafoo Response: ' + resp.code + ' ' + resp.message)
         resp.is_a? Net::HTTPSuccess
