@@ -21,6 +21,7 @@ module Bib
           resp = http.request(request)
         rescue SocketError => se
           log.info('Unable to publish deployment with tideways: ' + se.message)
+          return false
         end
         log.debug('qafoo Response: ' + resp.code + ' ' + resp.message)
         resp.is_a? Net::HTTPSuccess
