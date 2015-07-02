@@ -15,10 +15,13 @@ module Bib
         request.body = qafoo_params.to_json
 
         log.debug('qafoo sending data: ' + qafoo_params.to_json)
-
-        http = Net::HTTP.new(url.host, url.port)
-        http.use_ssl = true
-        resp = http.request(request)
+        begin
+          http = Net::HTTP.new(url.host, url.port)
+          http.use_ssl = true
+          resp = http.request(request)
+        rescue SocketError => se
+          log.info('Unable to publish deployment with tideways: ' + se)
+        end
         log.debug('qafoo Response: ' + resp.code + ' ' + resp.message)
         resp.is_a? Net::HTTPSuccess
       end
