@@ -4,4 +4,4 @@ rvm:
 
 script:
   - bundle exec rake test
-  - rubocop
+  - bundle exec rubocop
