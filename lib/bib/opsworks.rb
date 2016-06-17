@@ -1,3 +1,4 @@
+require 'bib/opsworks/logging'
 require 'bib/opsworks/composer'
 require 'bib/opsworks/newrelic'
 require 'bib/opsworks/qafoo'

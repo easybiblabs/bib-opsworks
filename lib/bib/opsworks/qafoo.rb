@@ -1,4 +1,5 @@
 require 'net/http'
+require 'bib/opsworks/logging'
 
 module Bib
   module Opsworks
