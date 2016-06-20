@@ -1,4 +1,5 @@
 require 'net/http'
+require 'bib/opsworks/logging'
 
 module Bib
   module Opsworks
@@ -30,11 +31,11 @@ module Bib
       def prepare_publishing_data(app_name, deploy_data)
         scm_revision = deploy_data['scm']['revision']
 
-        if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
-          deployment_user = 'opsworks'
-        else
-          deployment_user = deploy_data['deploying_user'].split('/')[1]
-        end
+        deployment_user = if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
+                            'opsworks'
+                          else
+                            deploy_data['deploying_user'].split('/')[1]
+                          end
 
         name_text = "#{scm_revision} by #{deployment_user}"
 
