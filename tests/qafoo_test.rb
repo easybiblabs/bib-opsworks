@@ -11,11 +11,11 @@ class QafooTest < Minitest::Test
     app_name = 'unittest'
 
     scm_revision = deploy_data['scm']['revision']
-    if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
-      deployment_user = 'opsworks'
-    else
-      deployment_user = deploy_data['deploying_user'].split('/')[1]
-    end
+    deployment_user = if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
+                        'opsworks'
+                      else
+                        deploy_data['deploying_user'].split('/')[1]
+                      end
     name_text = "#{scm_revision} by #{deployment_user}"
 
     result = qafoo.prepare_publishing_data(app_name, deploy_data)
@@ -34,11 +34,11 @@ class QafooTest < Minitest::Test
     app_name = 'unittest'
 
     scm_revision = deploy_data['scm']['revision']
-    if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
-      deployment_user = 'opsworks'
-    else
-      deployment_user = deploy_data['deploying_user'].split('/')[1]
-    end
+    deployment_user = if deploy_data['deploying_user'].nil? || deploy_data['deploying_user'].empty?
+                        'opsworks'
+                      else
+                        deploy_data['deploying_user'].split('/')[1]
+                      end
     name_text = "#{scm_revision} by #{deployment_user}"
 
     result = qafoo.prepare_publishing_data(app_name, deploy_data)
