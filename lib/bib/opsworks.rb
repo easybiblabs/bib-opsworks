@@ -3,6 +3,7 @@ require 'bib/opsworks/composer'
 require 'bib/opsworks/newrelic'
 require 'bib/opsworks/qafoo'
 require 'bib/opsworks/google'
+require 'bib/opsworks/hipchat'
 require 'bib/opsworks/version'
 
 class BibOpsworks
@@ -27,6 +28,11 @@ class BibOpsworks
   def google_publish_deployment(app_name, deploy_data, google_ident)
     google = Bib::Opsworks::Google.new
     google.publish_deployment(app_name, deploy_data, google_ident)
+  end
+
+  def hipchat_publish_deployment(app_name, deploy_data, api_token, room)
+    hipchat = Bib::Opsworks::HipChat.new
+    hipchat.publish_deployment(app_name, deploy_data, api_token, room)
   end
 
   def version

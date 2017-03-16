@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    BibOpsworks (0.1.8)
+    BibOpsworks (0.2.0)
+      hipchat (= 1.5.4)
       json
 
 GEM
@@ -15,8 +16,15 @@ GEM
       thor (~> 0.19.1)
       tins (~> 1.6.0)
     docile (1.1.5)
+    hipchat (1.5.4)
+      httparty
+      mimemagic
+    httparty (0.14.0)
+      multi_xml (>= 0.5.2)
     json (1.8.3)
+    mimemagic (0.3.2)
     minitest (5.0.8)
+    multi_xml (0.6.0)
     parser (2.3.1.2)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -52,4 +60,4 @@ DEPENDENCIES
   rubocop
 
 BUNDLED WITH
-   1.10.6
+   1.13.7
